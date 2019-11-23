@@ -172,3 +172,8 @@ function generateHTML(data) {
            }
         </style>`
 }
+
+module.exports = {
+  colors = "colors",
+  generateHTML = "generateHTML"
+}

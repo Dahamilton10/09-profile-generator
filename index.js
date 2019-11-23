@@ -1,40 +1,43 @@
 var inquirer = require("inquirer");
 var fs = require('fs');
+const generateHTML = require("./generateHTML");
 
 
-const questions = [
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "userName",
-            message: "What is your github username?"
-        },
-        {
-            type: "list",
-            message: "What is your favorite color?",
-            name: "color",
-            choices: [
-                "green",
-                "blue",
-                "pink",
-                "red",
-            ]
-        }
-    ]).then(function (data) {
 
-        var filename = data.name.toLowerCase().split(' ').join('') + ".json";
+inquirer.prompt([
+    {
+        type: "input",
+        name: "userName",
+        message: "What is your github username?"
+    },
+    {
+        type: "list",
+        message: "What is your favorite color?",
+        name: "color",
+        choices: [
+            "green",
+            "blue",
+            "pink",
+            "red",
+        ]
+    }
+]).then(function (data) {
+    const url = `https://api.github.com/users/${userName}`
 
-        fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
+    axios.get(url)
+    .then (response => {
+        generateHTML();
+    })
 
-            if (err) {
-                return console.log(err);
-            }
 
-            console.log("Success!");
 
-        });
-    });
-];
+
+
+
+
+
+})
+
 
 function writeToFile(fileName, data) {
 
