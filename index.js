@@ -1,6 +1,7 @@
 var inquirer = require("inquirer");
 var fs = require('fs');
-const generateHTML = require("./generateHTML");
+var axios = require('axios');
+const generateHTML = require('./generateHTML');
 
 
 
@@ -22,31 +23,26 @@ inquirer.prompt([
         ]
     }
 ]).then(function (data) {
+    const p1 = generateHTML.generateHTML1(data);
 
-    const p1 = generateHTML(data)
-
-    const url = `https://api.github.com/users/${userName}`
+    const url = `https://api.github.com/users/${data.userName}`
 
     axios.get(url)
-    .then (response => {
-       const p2 = generateHTML2(response);
-       const HTML = `${p1}${p2}`
-    });
-
-
-
-
-
-
-
+        .then(response => {
+            console.log(response.data); 
+            const p2 = generateHTML.generateHTML2(response);
+            const portfolio = `${p1}${p2}`
+            writeToFile(portfolio);
+        });
 
 })
 
 
-function writeToFile(fileName, data) {
-    fs.writeFile("portfolio.html", HTML);
+function writeToFile(data) {
+    fs.writeFile("portfolio.html", data, function (err, data) {
+        if (err) console.log('error', err);
+    });
 }
-
 function init() {
 
 }

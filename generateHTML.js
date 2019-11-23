@@ -25,7 +25,7 @@ const colors = {
     }
 };
 
-function generateHTML(data) {
+function generateHTML1(data) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -253,7 +253,7 @@ function generateHTML2(response){
 }
 
 module.exports = {
-  colors = "colors",
-  generateHTMLFunction = "generateHTML",
-  generateHTML2 = "generateHTML2"
+  colors: colors,
+  generateHTML1: generateHTML1,
+  generateHTML2: generateHTML2
 }
