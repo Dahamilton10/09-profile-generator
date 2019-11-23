@@ -173,7 +173,87 @@ function generateHTML(data) {
         </style>`
 }
 
+function generateHTML2(response){
+  return `
+  <body>
+      <div class="wrapper">
+          <div class="photo-header">
+              <img>
+              <h1>
+                  hi
+              </h1>
+              <h1>
+                  my name is dave
+              </h1>
+              <h2>
+                  work
+              </h2>
+              <div class="links-nav">
+                  <a class="nav-link" href="*">location</a>
+                  <a class="nav-link" href="*">GitHub</a>
+                  <a class="nav-link" href="*">Blog</a>
+              </div>
+          </div>
+          <main>
+  
+  
+              <div class="container">
+  
+                  <div class="row">
+                      <h1 class="col">
+                          Hobby
+                      </h1>
+                  </div>
+  
+                  <div class="row">
+                      <div class="card col">
+                          <h1>
+                              public repos
+                          </h1>
+                          <h2>
+                              number
+                          </h2>
+                      </div>
+  
+                      <div class="card col">
+                          <h1>
+                              followers
+                          </h1>
+                          <h2>
+                              number
+                          </h2>
+                      </div>
+                  </div>
+  
+                  <div class="row">
+                      <div class="card col">
+                          <h1>
+                              github stars
+                          </h1>
+                          <h2>
+                              number
+                          </h2>
+                      </div>
+  
+                      <div class="card col">
+                          <h1>
+                              following
+                          </h1>
+                          <h2>
+                              number
+                          </h2>
+                      </div>
+                  </div>
+  
+              </div>
+          </main>
+      </div>
+  </body>
+  `
+}
+
 module.exports = {
   colors = "colors",
-  generateHTML = "generateHTML"
+  generateHTMLFunction = "generateHTML",
+  generateHTML2 = "generateHTML2"
 }
