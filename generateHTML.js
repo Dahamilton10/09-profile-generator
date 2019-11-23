@@ -178,20 +178,17 @@ function generateHTML2(response){
   <body>
       <div class="wrapper">
           <div class="photo-header">
-              <img>
+              <img src="${response.data.avatar_url}">
               <h1>
-                  hi
-              </h1>
-              <h1>
-                  my name is dave
+                  ${response.data.bio}
               </h1>
               <h2>
-                  work
+                  ${response.data.company}
               </h2>
               <div class="links-nav">
-                  <a class="nav-link" href="*">location</a>
-                  <a class="nav-link" href="*">GitHub</a>
-                  <a class="nav-link" href="*">Blog</a>
+                  <a class="nav-link" href="*">${response.data.location}</a>
+                  <a class="nav-link" href="${response.data.html_url}">GitHub</a>
+                  <a class="nav-link" href="${response.data.blog}">Blog</a>
               </div>
           </div>
           <main>
@@ -211,7 +208,7 @@ function generateHTML2(response){
                               public repos
                           </h1>
                           <h2>
-                              number
+                              ${response.data.public_repos}
                           </h2>
                       </div>
   
@@ -220,7 +217,7 @@ function generateHTML2(response){
                               followers
                           </h1>
                           <h2>
-                              number
+                              ${response.data.followers}
                           </h2>
                       </div>
                   </div>
@@ -231,7 +228,7 @@ function generateHTML2(response){
                               github stars
                           </h1>
                           <h2>
-                              number
+                              ${response.data.followers}
                           </h2>
                       </div>
   
@@ -240,7 +237,7 @@ function generateHTML2(response){
                               following
                           </h1>
                           <h2>
-                              number
+                              ${response.data.following}
                           </h2>
                       </div>
                   </div>

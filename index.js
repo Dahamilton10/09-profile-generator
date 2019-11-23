@@ -29,7 +29,7 @@ inquirer.prompt([
 
     axios.get(url)
         .then(response => {
-            console.log(response.data); 
+            console.log(response.data);
             const p2 = generateHTML.generateHTML2(response);
             const portfolio = `${p1}${p2}`
             writeToFile(portfolio);
