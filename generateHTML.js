@@ -180,13 +180,13 @@ function generateHTML2(response){
           <div class="photo-header">
               <img src="${response.data.avatar_url}">
               <h1>
-                  ${response.data.bio}
+                  Hi my name is ${response.data.name}
               </h1>
               <h2>
                   ${response.data.company}
               </h2>
               <div class="links-nav">
-                  <a class="nav-link" href="*">${response.data.location}</a>
+                  <a class="nav-link" href="https://www.google.com/maps/place/${response.data.location}/">${response.data.location}</a>
                   <a class="nav-link" href="${response.data.html_url}">GitHub</a>
                   <a class="nav-link" href="${response.data.blog}">Blog</a>
               </div>
@@ -198,7 +198,7 @@ function generateHTML2(response){
   
                   <div class="row">
                       <h1 class="col">
-                          Hobby
+                          ${response.data.bio}
                       </h1>
                   </div>
   

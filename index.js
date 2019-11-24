@@ -1,6 +1,8 @@
 var inquirer = require("inquirer");
-var fs = require('fs');
+var fs = require('fs-extra');
 var axios = require('axios');
+var puppeteer = require('puppeteer');
+var open = require('open');
 const generateHTML = require('./generateHTML');
 
 
@@ -33,8 +35,8 @@ inquirer.prompt([
             const p2 = generateHTML.generateHTML2(response);
             const portfolio = `${p1}${p2}`
             writeToFile(portfolio);
+            pdf(portfolio);
         });
-
 })
 
 
@@ -43,7 +45,41 @@ function writeToFile(data) {
         if (err) console.log('error', err);
     });
 }
-function init() {
 
+function pdf(d) {
+    (async function () {
+        try {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            await page.setContent(d);
+            await page.emulateMedia('screen');
+            await page.pdf({
+                path: 'portfolio.pdf',
+                format: 'A4',
+                printBackground: true
+            });
+            console.log("done");
+            openFile();
+            await browser.close();
+            process.exit();
+
+
+
+        } catch (e) {
+            console.log('our error', e);
+            process.exit();
+        }
+    })();
 }
-init();
+
+function openFile() {
+    (async () => {
+        try {
+            await open(`portfolio.pdf`);
+        } catch (e) {
+            if (e) {
+                console.log('uh oh', e)
+            }
+        }
+    })();
+}
