@@ -46,6 +46,8 @@ function writeToFile(data) {
     });
 }
 
+// Most of this was from https://www.youtube.com/watch?v=9VgghGKx_1c
+// To be honest I think I get most of this now that its infront of me, but I would never have been able to write this code without help
 function pdf(d) {
     (async function () {
         try {
@@ -72,6 +74,8 @@ function pdf(d) {
     })();
 }
 
+
+    // I found most of how to use this from https://www.npmjs.com/package/open the try and catch stuff was from debugging and idk if I still need it to be honest
 function openFile() {
     (async () => {
         try {
