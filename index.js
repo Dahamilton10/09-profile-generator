@@ -58,7 +58,7 @@ function pdf(d) {
                 format: 'A4',
                 printBackground: true
             });
-            console.log("done");
+            console.log("making pdf");
             openFile();
             await browser.close();
             process.exit();
@@ -75,7 +75,8 @@ function pdf(d) {
 function openFile() {
     (async () => {
         try {
-            await open(`portfolio.pdf`);
+            console.log("open pdf")
+            await open('portfolio.pdf', {app: 'chrome'});
         } catch (e) {
             if (e) {
                 console.log('uh oh', e)
