@@ -80,7 +80,8 @@ function openFile() {
     (async () => {
         try {
             console.log("open pdf")
-            await open('portfolio.pdf', {app: 'chrome'});
+            // await open('./portfolio.pdf');
+            await open('./portfolio.pdf', {app: 'chrome'});
         } catch (e) {
             if (e) {
                 console.log('uh oh', e)
